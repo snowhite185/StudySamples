@@ -1,26 +1,27 @@
 package myapp
 
+import kotlin.random.Random
 import kotlin.system.exitProcess
 
 class Dice {
-    var diceNumbers: IntArray = intArrayOf(1, 2, 3, 4, 5, 6)
 
-    fun rollTheDice(): Int {
-        val values = diceNumbers.toList()
-        return values.shuffled()[0]
+    fun roll(): Int {
+
+        return Random.nextInt(1, 6)
     }
 
     fun continueDice(number: Int): Int {
         if (number == 6) {
-            return continueDice(rollTheDice())
+            return continueDice(roll())
         } else
             return number
     }
+
 }
 
 fun main() {
     var dice = Dice()
-    val numberOnTheDice = dice.rollTheDice()
+    val numberOnTheDice = dice.roll()
     println("Your dice shows : $numberOnTheDice")
 
     if (numberOnTheDice == 6) {
