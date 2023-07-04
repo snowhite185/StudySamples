@@ -12,7 +12,7 @@ class Dice {
 
     fun continueDice(number: Int): Int {
         if (number == 6) {
-            return continueDice(6)
+            return continueDice(rollTheDice())
         } else
             return number
     }
@@ -20,7 +20,7 @@ class Dice {
 
 fun main() {
     var dice = Dice()
-    val numberOnTheDice = 6
+    val numberOnTheDice = dice.rollTheDice()
     println("Your dice shows : $numberOnTheDice")
 
     if (numberOnTheDice == 6) {
